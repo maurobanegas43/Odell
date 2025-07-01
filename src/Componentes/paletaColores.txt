@@ -1,0 +1,9 @@
+5. Minimalista y Profesional (para una academia seria o de alto nivel)
+
+
+Color	Código	Uso sugerido
+Azul marino	#1F3B4D	Fondo o cabecera
+Blanco	#FFFFFF	Texto y fondo
+Gris claro	#D9D9D9	Inputs, bordes
+Azul claro	#A9D6E5	Botones o enlaces
+Negro	#000000	Tipografía fuerte

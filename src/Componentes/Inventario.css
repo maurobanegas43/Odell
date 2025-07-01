@@ -1,0 +1,59 @@
+.main{
+    display: flex;
+    flex-direction: row;
+
+}
+.contenido{
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 15px;
+}
+.principal{
+    display: flex;
+    flex-direction: row;
+    width: 20em;
+    height: 25em;
+    background: rgb(100, 31, 31);
+    margin-top: 20px;
+    margin-right: 20px;
+    padding: 20px 10px 10px 10px;
+}
+
+.section-principal img{
+  width: 10em;
+  height: 20em;
+  object-fit: cover;
+  margin-bottom: 0.7rem;
+  border-radius: 8px;
+  padding-left: 10px;
+    
+}
+.section-descripcion{
+    display: flex;
+    flex-direction: column;
+
+    
+}
+.sidebar{
+  background: #1a1a1a;
+  width: 30em;
+  height: 100em;
+  display: flex;
+  flex-direction: column;
+  margin-right: 0px;
+  margin-top: 20px;
+  
+
+
+}
+.sidebar h3{
+  padding: auto;
+  justify-content: center;
+  align-items: center;
+}
+.section-categoria{
+  font-size: 1.2em;
+  padding-top: 10px;
+  
+  
+}
