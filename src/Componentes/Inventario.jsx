@@ -22,6 +22,10 @@ const Inventario=()=>{
 
     ]
     //no estoy tan seguro si tendria que tener relacion con las alumnas o el grupo que uso tal vestido
+
+
+
+    // hacer el backend una api rest para comunicarse con react usando go puro o un frammework veremos
 const searchVestido=()=>{
     
 }
