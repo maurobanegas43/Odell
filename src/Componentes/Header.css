@@ -1,8 +1,19 @@
-.header-principal{
-    display: flex;
-    flex-direction: row;
-    width: 101em;
-    justify-content: center;
-    background: #1a1a1a;
+:root {
+  --gris-carbon: #333333;
+  --negro: #000000;
+  --blanco: #FFFFFF;
+  --rojo-flamenco: #8B0000;
+  --fuente-principal: 'Georgia', serif;
+}
 
+.header-principal {
+  display: flex;
+  flex-direction: row;
+  width: 100VW; /* reemplaza 101em por 100% para responsive */
+  justify-content: center;
+  align-items: center;
+  background-color: var(--gris-carbon);
+  color: var(--blanco);
+  padding: 10px 0;
+  font-family: var(--fuente-principal);
 }

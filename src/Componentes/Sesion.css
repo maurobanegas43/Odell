@@ -1,0 +1,73 @@
+:root {
+  --rojo-flamenco: #8B0000;
+  --rojo-flamenco-hover: #a50000;
+  --beige: #F5F5DC;
+  --gris-carbon: #333333;
+  --gris-oscuro: #3b3a47;
+  --blanco: #FFFFFF;
+  --negro: #000000;
+  --fuente-principal: 'Georgia', serif;
+}
+
+body {
+  font-family: var(--fuente-principal);
+  background-color: var(--beige);
+  color: var(--negro);
+}
+
+.principal-login {
+  display: flex;
+  margin-top: 0%;
+  justify-content: center;
+
+ height: 100px;
+  width: 100vw;
+  min-height: 50vh;
+  background-color: var(--beige);
+}
+
+.login-sesion {
+  background-color: var(--gris-oscuro);
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  color: var(--blanco);
+  width: 100%;
+  max-width: 300px;
+}
+
+.login-sesion-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-sesion-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-sesion-section label {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.login-sesion-section input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.login-sesion-section button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: var(--rojo-flamenco);
+  color: var(--blanco);
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-sesion-section button:hover {
+  background-color: var(--rojo-flamenco-hover);
+}
