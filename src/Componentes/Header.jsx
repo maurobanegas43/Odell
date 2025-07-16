@@ -1,19 +1,27 @@
 import './Header.css'
+import { useNavigate } from "react-router-dom";
 
 
-const Header= ()=>{
+const Header= ({setProtegida})=>{
+        const navigate = useNavigate();
 
 
-
+    // el componente que mas trabajo le falta
+ 
 return(
 
     <div className="header-principal">
         <h2>Odell</h2>
-        <button>Home</button>
-        <button>Nueva Alumna</button>
-        <button>Situacion academica</button>
-        <button>Situacion Arancelaria</button>
-        <button>Inventario</button>
+        <button onClick={()=> {navigate('/home')}}>Home</button>
+        <button onClick={()=> {navigate('/inscribirAlumnas')}}>Nueva Alumna</button>
+        <button onClick={()=> {navigate('/situacionArancelaria')}}>Situacion Alumna</button>
+        <button onClick={()=> {navigate('/inventario')}}>Inventario</button>
+        <button onClick={()=> {
+         setProtegida(false)
+         navigate('/')
+
+        }}>Cerrar Sesion</button>
+
 
         
     </div>
