@@ -20,7 +20,9 @@ const [data , setData]=useState({
     gmail : '',
     dni:'',
     telefono : '',
-    direccion : ''
+    direccion : '',
+    imagen : ''
+
     
 
 })
@@ -57,7 +59,8 @@ const handleEnvio = async (e) => {
         gmail: '',
         dni: '',
         telefono: '',
-        direccion: ''
+        direccion: '',
+        imagen :''
       });
     } catch (error) {
       console.log("Error al enviar datos ", error);
@@ -116,6 +119,21 @@ const handleEnvio = async (e) => {
                   onChange={handleInscribir}>
 
             </input>
+
+            <label>Foto</label>
+            <input
+                  name='imagen'
+                  value={data.imagen}
+                  onChange={handleInscribir}>
+
+            </input>
+
+
+
+
+
+
+
             <button  onClick={handleEnvio}>Inscribir Alumna</button>
             
         </section>

@@ -2,6 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 import Header from './Header';
+import './Situacion.css'
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 90 },
@@ -78,7 +79,9 @@ const rows = [
 
 export default function DataGridDemo({setProtegida}) {
   return (
-    <div>
+    <div className='box-principal'>
+
+
 
 
     <Box sx={{ height: 600, width: '100%' }}>

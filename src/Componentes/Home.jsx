@@ -33,7 +33,7 @@ import './home.css'
 
     return (
     <div className="home-main">
-        <Header setProtegida={setProtegida}></Header>
+       
         <h1>Odell</h1>
         <section >
          <img src={imagenes[banner]} onClick={HandleImagen}>
