@@ -33,7 +33,7 @@ const Sesion = ({setProtegida}) =>{
 
       const handleRecibir = async()=>{
           const data = await apiGet("/admins")
-          console.log("data de /admins:", data) // 👈 agrega esto
+          console.log("data de /admins:", data) 
 
           setAdmin(data)
           if (!data){

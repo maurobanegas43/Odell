@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { apiGet } from '../Appi'
+import './Alumna.css'
+
 
 
 
@@ -16,18 +18,30 @@ import { apiGet } from '../Appi'
     fetchAlumna();
   }, []);
 
+const buscarAlumna=(index)=>{
+  index=0
+ 
+}
+
+
+
+
+
+
+
 
 return(
 
 
-  <div>
+  <div className="alumna-container">
+    
 {alumna.map((user) =>(<div key={user.id}>
-   <div key={user.id} className="principal">
-            <section className="section-principal">
+   <div key={user.id} className="principal-alumna">
+            <section className="section-principal-alumna">
               <img src={user.imagen}  />
              
             </section>
-            <section className="section-descripcion">
+            <section className="section-descripcion-alumna">
               <h2>{user.nombre}</h2>
               <p>Apellido: {user.apellido}</p>
               <p>Dni: {user.dni}</p>

@@ -2,7 +2,6 @@ import { useState , useEffect } from "react"
 
 
 
-// esta mal la ruta de vestidos , y url esta mal 
 const URL = 'http://localhost:4000'
 
 //metodo GET

@@ -1,0 +1,192 @@
+/* Contenedor principal de la tabla */
+.tabla {
+  width: 100%;
+  max-width: 2000px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  font-family: 'Arial', sans-serif;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Header de la tabla */
+.fila-header {
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr 120px 100px 120px;
+  background: linear-gradient(135deg, #4472C4 0%, #2E5BBA 100%);
+  color: white;
+  font-weight: bold;
+  border-bottom: 2px solid #1f4788;
+}
+
+.fila-header .box-columna {
+  padding: 15px 12px;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fila-header .box-columna:last-child {
+  border-right: none;
+}
+
+.fila-header h2 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Contenedor de filas de datos */
+.box-fila {
+  display: block;
+  width: 100%;
+}
+
+/* Filas de datos */
+.fila {
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr 120px 100px 120px;
+  border-bottom: 1px solid #e0e0e0;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+/* Efecto hover en filas */
+.fila:hover {
+  background: #f8f9ff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Celdas individuales */
+.fila > div {
+  padding: 12px;
+  text-align: center;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: #333;
+  min-height: 40px;
+}
+
+.fila > div:last-child {
+  border-right: none;
+}
+
+/* Colores alternados para filas */
+.fila:nth-child(even) {
+  background: #f8f9fa;
+}
+
+.fila:nth-child(even):hover {
+  background: #e8f2ff;
+}
+
+/* Estilos específicos por columna */
+.fila > div:first-child {
+  font-weight: bold;
+  color: #4472C4;
+  background: rgba(68, 114, 196, 0.05);
+}
+
+.fila > div:nth-child(4) {
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.fila > div:nth-child(5) {
+  font-weight: bold;
+  color: #2d5016;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .fila-header,
+  .fila {
+    grid-template-columns: 60px 1fr 1fr 100px 80px 100px;
+    font-size: 12px;
+  }
+  
+  .fila-header .box-columna,
+  .fila > div {
+    padding: 8px 6px;
+  }
+  
+  .fila-header h2 {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fila-header,
+  .fila {
+    grid-template-columns: 50px 1fr 1fr 80px 70px 90px;
+    font-size: 11px;
+  }
+  
+  .fila-header .box-columna,
+  .fila > div {
+    padding: 6px 4px;
+  }
+}
+
+/* Efectos adicionales tipo Excel */
+.fila > div:focus {
+  outline: 2px solid #4472C4;
+  outline-offset: -2px;
+  background: #fff2cc;
+}
+
+/* Scrollbar personalizada */
+.tabla::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.tabla::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.tabla::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.tabla::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Animación de carga */
+.fila {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estado vacío */
+.box-fila:empty::after {
+  content: "No hay datos para mostrar";
+  display: block;
+  text-align: center;
+  padding: 40px;
+  color: #999;
+  font-style: italic;
+  grid-column: 1 / -1;
+}
