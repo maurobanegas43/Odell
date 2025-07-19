@@ -32,8 +32,10 @@ const buscarAlumna=(index)=>{
 
 return(
 
-
+  <div className='box'>
+  <input className='input-search-alumna' placeholder='Buscar Alumna'></input>
   <div className="alumna-container">
+    
     
 {alumna.map((user) =>(<div key={user.id}>
    <div key={user.id} className="principal-alumna">
@@ -55,11 +57,13 @@ return(
           </div>
 
 </div>
-  
+    
+
 ))}
 
 
 
+  </div>
   </div>
 )
 

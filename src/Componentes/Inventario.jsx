@@ -3,6 +3,9 @@ import './Inventario.css';
 import { apiGet, apiDelete, apiPost } from "../Appi";
 import Header from "./Header";
 
+//Ahacer que el botton Agregar vestido sea desplegable
+//Agregar button para hacer Accesorios 
+
 const Inventario = ({setProtegida}) => {
   const [vestidos, setVestidos] = useState([]);
 
