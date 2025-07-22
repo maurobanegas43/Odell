@@ -16,7 +16,7 @@ return(
         <button onClick={()=> {navigate('/inscribirAlumnas')}}>Nueva Alumna</button>
         <button onClick={()=> {navigate('/situacionArancelaria')}}>Situacion Alumna</button>
         <button onClick={()=> {navigate('/inventario')}}>Inventario</button>
-        <button onClick={()=> {navigate('/alumna')}}>Alumnas</button>
+        <button onClick={()=> {navigate('/alumnas')}}>Alumnas</button>
         
         <button onClick={()=> {
          setProtegida(false)

@@ -43,15 +43,38 @@ export const apiDelete = async (endpoint )=>{
             method:'DELETE'
         }
     )
-    if(response.ok){
+    if(!response.ok){
         throw new Error(`Error al borrar ${endpoint} `)
 
+    }else{
+        console.log("ALumna borrada")
     }
-    return await response.json()
+
+    
 }
 
 
+
 //metodo UPDATE
+
+export const apiPath = async (endpoint , data)=>{
+
+    const response = await fetch(`${URL}${endpoint}`,
+        {
+            method:'PATCH',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(data)
+        }
+    )
+    if (!response.ok){
+        throw new Error(`Error no se creo `)
+    }
+    return await response.json();
+
+
+}
 
 
 
