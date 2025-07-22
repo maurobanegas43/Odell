@@ -119,6 +119,9 @@ const Inventario = ({setProtegida}) => {
     });
   };
 
+
+
+
   return (
     <div className="main">
       <aside className="sidebar">
@@ -183,6 +186,10 @@ const Inventario = ({setProtegida}) => {
 
         </ul>
         <button onClick={limpiarFiltros}>Limpiar filtros</button>
+
+        <button>Vestidos</button>
+        <button>Accesorios</button>
+
       </aside>
 
       <div className="contenido">
@@ -204,7 +211,11 @@ const Inventario = ({setProtegida}) => {
           <div key={vestido.id} className="principal">
             <section className="section-principal">
               <img src={vestido.imagen} alt={vestido.nombre} />
-              <h3>{vestido.nombre}</h3>
+              
+              <section className="section-modificar">
+              <button>Actualizar</button>
+              <button>Borrar</button>
+              </section>
             </section>
             <section className="section-descripcion">
               <h2>{vestido.nombre}</h2>
