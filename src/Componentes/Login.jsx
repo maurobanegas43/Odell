@@ -1,6 +1,12 @@
 import './Login.css';
 import { useState } from 'react';
 import Header from './Header';
+import { apiGet, apiDelete, apiPost } from "../Appi";
+
+
+
+
+
 
 const Login=({setProtegida})=>{
 
@@ -37,21 +43,13 @@ const handleInscribir =( e) =>{
 
 }
 
+
 const handleEnvio = async (e) => {
     e.preventDefault();
-
-    try {
-      const response = await fetch('http://localhost:4000/newAlumna', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
-
-      const convertir = await response.json();
-      console.log("Funciona", convertir);
-
+    const crear= await apiPost("/newAlumna",data)
+    if(crear){
+      console.log("Alumna creada")
+    }
       setData({
         nombre: '',
         apellido: '',
@@ -62,9 +60,7 @@ const handleEnvio = async (e) => {
         direccion: '',
         imagen :''
       });
-    } catch (error) {
-      console.log("Error al enviar datos ", error);
-    }
+ 
   };
 
 
@@ -134,7 +130,7 @@ const handleEnvio = async (e) => {
 
 
 
-            <button  onClick={handleEnvio}>Inscribir Alumna</button>
+            <button  onClick={(e)=>{handleEnvio(e)}}>Inscribir Alumna</button>
             
         </section>
     </div>

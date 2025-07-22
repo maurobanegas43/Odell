@@ -8,7 +8,7 @@ import Header from "./Header";
 
 const Inventario = ({setProtegida}) => {
   const [vestidos, setVestidos] = useState([]);
-
+  const [agregarVestido,setAgregarVestido]=useState(false)
   const [vestido, setVestido] = useState({
     nombre: '',
     temporada: '',
@@ -37,6 +37,11 @@ const Inventario = ({setProtegida}) => {
   });
 
 
+
+
+
+  const [mostrarVestidos, setMostrarVestidos]=useState(false)
+
   const handleRecibir = async()=>{
       const data = await apiGet("/vestidos")
       setVestidos(data)
@@ -56,6 +61,9 @@ const Inventario = ({setProtegida}) => {
 
   
 
+
+
+  
   const handleEnviar = async (e) => {
     e.preventDefault();
     try {
@@ -187,14 +195,24 @@ const Inventario = ({setProtegida}) => {
         </ul>
         <button onClick={limpiarFiltros}>Limpiar filtros</button>
 
-        <button>Vestidos</button>
+        <button onClick={()=>{
+
+          if(!mostrarVestidos){
+          setMostrarVestidos(true)}else{
+            setMostrarVestidos(false)
+          }
+        }}>Vestidos</button>
         <button>Accesorios</button>
+        <button onClick={()=>{if(!agregarVestido){setAgregarVestido(true)
+        }else{
+          setAgregarVestido(false)
+        }}}>Agregar vestido</button>
+
 
       </aside>
 
       <div className="contenido">
-       
-        
+        {agregarVestido &&(
         <form onSubmit={handleEnviar} className="formulario-vestido">
           <input type="text" name="nombre" placeholder="Nombre del Baile" value={vestido.nombre} onChange={handleInputChange} required />
           <input type="text" name="temporada" placeholder="Temporada" value={vestido.temporada} onChange={handleInputChange} required />
@@ -206,8 +224,10 @@ const Inventario = ({setProtegida}) => {
           <input type="text" name="año" placeholder="Año" value={vestido.año} onChange={handleInputChange} />
           <button type="submit">Agregar vestido</button>
         </form>
+)}
 
-        {filtro().map(vestido => (
+       {mostrarVestidos &&(
+          filtro().map(vestido => (
           <div key={vestido.id} className="principal">
             <section className="section-principal">
               <img src={vestido.imagen} alt={vestido.nombre} />
@@ -225,7 +245,7 @@ const Inventario = ({setProtegida}) => {
               <p>Año: {vestido.año}</p>
             </section>
           </div>
-        ))}
+        )))}
       </div>
     </div>
   );
