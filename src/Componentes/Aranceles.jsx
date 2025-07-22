@@ -85,7 +85,6 @@ return(
         <form onSubmit={handleEnvio}>
         <section className="tabla">
             <div className="fila-header">
-            <div className="box-columna"><h2>ID</h2> </div>
             <div className="box-columna"><h2>Nombre</h2> </div>
             <div className="box-columna"><h2>Apellido</h2> </div>
             <div className="box-columna"><h2>Fecha</h2> </div>
@@ -114,6 +113,7 @@ return(
             ></input>
             <input
             name="fecha"
+            type="date"
             value={newComprobante.fecha}
             onChange={recibirInput}
             placeholder="Fecha"

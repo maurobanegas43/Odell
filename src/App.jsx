@@ -66,7 +66,7 @@ function App() {
                 }></Route>
 
 
-                <Route path='/alumna' 
+                <Route path='/alumnas' 
                 element={
                 <Proteger rutaProtegida={rutaProtegida}>
                 <Alumna setProtegida={setProtegida}></Alumna>
