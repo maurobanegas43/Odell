@@ -134,7 +134,7 @@ const handleEnvio = async (e) => {
 
 
 
-            <button  onClick={handleEnvio}>Inscribir Alumna</button>
+            <button  onClick={(e)=>{handleEnvio(e)}}>Inscribir Alumna</button>
             
         </section>
     </div>
