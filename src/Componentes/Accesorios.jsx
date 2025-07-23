@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import { apiGet,apiPost,apiPath,apiDelete} from "../Appi"
-import { data } from "react-router-dom"
 
 import './Accesorio.css'
 
@@ -10,30 +9,49 @@ const Accesorios=()=>{
     const [cardAccesorio , setCardAccesorio]= useState([])
     
     const [cardUpdate,setCardUpdate]=useState({
+        id:'',
         cantidad:'',
         imagen:'',
         descripcion:''
 
     })  
     
-const [accesorioUpdate,setAccesorioUpdate]=useState(false)
+//Este estado solo es para mostrar    
+const [accesorioSeleccionado,setSelecionado]=useState(false)
+//Este estado es el recibe los datos del accesorio que quiero modificar 
+const [updateAccesorio,setUpdateAccesorio]= useState(null)
 
-
-const modificarEnviar= async(id)=>{
-    const cambiar = await apiPath(`accesorio/update/${id}`,cardUpdate) 
+const modificarEnviar= async()=>{
+    const cambiar = await apiPath(`/accesorio/update/${cardUpdate.id}`,cardUpdate) 
     setCardUpdate({
+        id:'',
         cantidad:'',
         imagen:'',
         descripcion:''
     })
+    setSelecionado(false)
+    setUpdateAccesorio(null)
 
 }
 
-const cambiar=()=>{
+const cambiarHandle=(e)=>{
     setCardUpdate({
         ...cardUpdate,
         [e.target.name]:e.target.value
     })
+}
+
+const cambiar =(accesorio)=>{
+    setSelecionado(true)
+    setUpdateAccesorio(accesorio)
+
+    setCardUpdate({
+        id: accesorio.id ,
+        cantidad:accesorio.cantidad||'',
+        imagen:accesorio.imagen||'',
+        descripcion:accesorio.descripcion||''
+    })
+
 }
 
 
@@ -78,8 +96,6 @@ return(
 
 <div className="accesorio-main">
  
-
-
    {cardAccesorio.map(alumnaAccesorio =>(   
             <div  className="principal-accesorio">
             <section className="section-accesorio">
@@ -88,24 +104,27 @@ return(
               <div className="botones-accesorio">
               <button
               onClick={()=>{
-                setAccesorioUpdate(true)
+                cambiar(alumnaAccesorio)
+            
 
               }}
               
                         
               >Actualizar</button>
 
-              {accesorioUpdate &&(
-                              <div>
+{/*parte del componente que renderiza al hacer click en el button de actualizar     */}
+
+ {updateAccesorio && alumnaAccesorio.id === updateAccesorio.id && accesorioSeleccionado && (
+                              <div className="section-accesorio-update">
 
       <section className="section-accesorios" key={cardAccesorio.id}>
-      <form>
+      
         
         <label>Cantidad Disponible</label>
         <input
         name="cantidad"
         value={cardUpdate.cantidad}
-        onChange={cambiar}
+        onChange={cambiarHandle}
         
         
         ></input>
@@ -113,7 +132,7 @@ return(
         <input
         name="descripcion"
         value={cardUpdate.descripcion}
-        onChange={cambiar}
+        onChange={cambiarHandle}
         
         ></input>
             
@@ -121,25 +140,19 @@ return(
         <input
         name="imagen"
         value={cardUpdate.imagen}
-        onChange={cambiar}
+        onChange={cambiarHandle}
         
         ></input>
 
-        <button onClick={(e)=>{
-            handleEnviarAccesorio(e)
-        }}></button>
-        </form>
+        <button onClick={()=>{
+            modificarEnviar()
+            
+        }}>modificar</button>
+        
     </section>
                                 
-
-
-
-
-
-
-
-
-                              </div>
+                                
+                                                              </div>
                             )}
 
 

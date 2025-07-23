@@ -3,6 +3,8 @@ import './Inventario.css';
 import { apiGet, apiDelete, apiPost } from "../Appi";
 import Header from "./Header";
 import Accesorios from "./Accesorios";
+import { useNavigate } from "react-router-dom";
+import './Accesorio.css';
 
 //Ahacer que el botton Agregar vestido sea desplegable
 //Agregar button para hacer Accesorios 
@@ -10,6 +12,7 @@ import Accesorios from "./Accesorios";
 const Inventario = ({setProtegida}) => {
   const [vestidos, setVestidos] = useState([]);
   const [agregarVestido,setAgregarVestido]=useState(false)
+  
   const [vestido, setVestido] = useState({
     nombre: '',
     temporada: '',
@@ -49,9 +52,13 @@ const [accesorio,setAccesorio]=useState({
        })
       
 const [mostrarAccesorios,setMostrarAccesorios]=useState(false)
+
 const [mostrarVestidos,setMostrarVestidos]=useState(false)
 
 
+//Vestido solo tiene funcion de borrar
+//Funcion para agregar nuevo accesorio
+//Problema a resolver cuando agrega un nuevo accesorio no recarga la lista 1-volver a hacer fetch con get o mover de lugar Agregar accesorios para que quede en el modulo accesorio
 const handleEnviarAccesorio= async(e)=>{
     e.preventDefault()
 
@@ -59,6 +66,8 @@ const handleEnviarAccesorio= async(e)=>{
     if(resquest){
         console.log("Nuevo accesorio cargado en db")
     }
+    
+
     setAccesorio({
         nombre:'',
         cantidad:'',
@@ -70,10 +79,7 @@ const handleEnviarAccesorio= async(e)=>{
 
 
 
-
-
-
-
+//trae Inicialmente los vestidos 
   const handleRecibir = async()=>{
       const data = await apiGet("/vestidos")
       setVestidos(data)
@@ -95,7 +101,7 @@ const handleEnviarAccesorio= async(e)=>{
 
 
 
-  
+  //crea nuevos vestidos
   const handleEnviar = async (e) => {
     e.preventDefault();
     try {
@@ -160,6 +166,8 @@ const handleEnviarAccesorio= async(e)=>{
   };
 
 
+
+//borra los vestidos
 const borrarVestido= async(id)=>{
 const filtrarVestido= vestidos.filter(vestido=>vestido.id != id
 )
@@ -345,6 +353,9 @@ try {
 
         <button onClick={(e)=>{
             handleEnviarAccesorio(e)
+            
+            setMostrarAccesorios(false)
+
         }}></button>
         </form>
     </section>
@@ -359,24 +370,24 @@ try {
         
         
           filtro().map(vestido => (
-          <div key={vestido.id} className="principal">
-            <section className="section-principal">
+          <div key={vestido.id} className="principal-accesorio">
+            <section className="section-accesorio">
               <img src={vestido.imagen} alt={vestido.nombre} />
-              <section className="section-modificar">
-              <button>Actualizar</button>
+              <section className="botones-accesorio">
               <button
+              className="boton-borrar-vestido"
               onClick={()=>{
                 borrarVestido(vestido.id)
-              }}
+              } }
               
               >Borrar</button>
-              </section>
+              
             </section>
-            <section className="section-descripcion">
+            
               <h2>{vestido.nombre}</h2>
-              <p>Temporada: {vestido.temporada}</p>
+
               <p>Grupo: {vestido.grupo}</p>
-              <p>Talle: {vestido.talle}</p>
+              
               <p>Año: {vestido.año}</p>
             </section>
           </div>

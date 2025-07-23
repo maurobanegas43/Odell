@@ -9,7 +9,8 @@
 .accesorio-main{
     display: flex;
     flex-wrap: wrap;
-     gap: 0
+     gap: 0;
+     justify-content: center;
 }
 
 .principal-accesorio {
@@ -20,7 +21,6 @@
   
   
 }
-
 
 .section-accesorio {
   width: 30em;
@@ -35,6 +35,13 @@
   border-radius: 5%;
 }
 
+.section-accesorio h2{
+  font-size: 2em;
+}
+.section-accesorio p{
+  font-size: medium;
+  color:var(--negro)
+}
 .botones-accesorio{
 display: flex;
 flex-direction: row;
@@ -69,8 +76,20 @@ gap: 10px
   
 }
 
-
+.boton-borrar-vestido{
+  margin-left: 25%;
+}
 .section-accesorio button:hover {
   background: var(--gris-oscuro);
   transform: scale(1.1);
+}
+.section-accesorio-update{
+  
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.section-accesorio-update input{
+  width: 100px;
 }
