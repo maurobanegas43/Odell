@@ -99,6 +99,7 @@ const Alumna = () => {
     setCambioAlumna(true);
     setAlumnaSeleccionada(user);
     setUpdateAlumna({
+      situacionAcademica:user.situacionAcademica||'',
       gmail: user.gmail || '',
       telefono: user.telefono || '',
       direccion: user.direccion || '',
@@ -170,6 +171,16 @@ const Alumna = () => {
                     value={updateAlumna.imagen}
                     onChange={handleInputAlumna}
                   />
+                  <label>SituacionAcademica</label>
+                  <input
+                    name='situaconAcademica'
+                    value={updateAlumna.situacionAcademica}
+                    onChange={handleInputAlumna}
+                  />
+
+
+
+
                   <button onClick={() => handleEnvio(user.id)}>
                     Realizar Cambios
                   </button>

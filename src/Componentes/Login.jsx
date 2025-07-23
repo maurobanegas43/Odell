@@ -27,7 +27,8 @@ const [data , setData]=useState({
     dni:'',
     telefono : '',
     direccion : '',
-    imagen : ''
+    imagen : '',
+    situacionAcademica:''
 
     
 
@@ -58,7 +59,8 @@ const handleEnvio = async (e) => {
         dni: '',
         telefono: '',
         direccion: '',
-        imagen :''
+        imagen :'',
+        situacionAcademica:''
       });
  
   };
@@ -120,6 +122,13 @@ const handleEnvio = async (e) => {
             <input
                   name='imagen'
                   value={data.imagen}
+                  onChange={handleInscribir}>
+
+            </input>
+            <label>Situacion Academica</label>
+            <input
+                  name='situacionAcademica'
+                  value={data.situacionAcademica}
                   onChange={handleInscribir}>
 
             </input>
