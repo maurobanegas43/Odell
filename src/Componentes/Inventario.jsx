@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import './Inventario.css';
 import { apiGet, apiDelete, apiPost } from "../Appi";
 import Header from "./Header";
+import Accesorios from "./Accesorios";
 
 //Ahacer que el botton Agregar vestido sea desplegable
 //Agregar button para hacer Accesorios 
@@ -39,8 +40,39 @@ const Inventario = ({setProtegida}) => {
 
 
 
+const [accesorio,setAccesorio]=useState({
+        nombre:'',
+        cantidad:'',
+        descripcion:'',
+        imagen:''
+      
+       })
+      
+const [mostrarAccesorios,setMostrarAccesorios]=useState(false)
+const [mostrarVestidos,setMostrarVestidos]=useState(false)
 
-  const [mostrarVestidos, setMostrarVestidos]=useState(false)
+
+const handleEnviarAccesorio= async(e)=>{
+    e.preventDefault()
+
+    const resquest= await apiPost("/newAccesorio",accesorio)
+    if(resquest){
+        console.log("Nuevo accesorio cargado en db")
+    }
+    setAccesorio({
+        nombre:'',
+        cantidad:'',
+        descripcion:'',
+        imagen:''
+    })
+}
+
+
+
+
+
+
+
 
   const handleRecibir = async()=>{
       const data = await apiGet("/vestidos")
@@ -128,6 +160,23 @@ const Inventario = ({setProtegida}) => {
   };
 
 
+const borrarVestido= async(id)=>{
+const filtrarVestido= vestidos.filter(vestido=>vestido.id != id
+)
+setVestidos(filtrarVestido)
+try {
+  const resquest= await apiDelete(`/vestido/delete/${id}`)
+} catch (error) {
+  
+}
+}
+
+  const handle=(e)=>{
+        setAccesorio({
+            ...accesorio,
+            [e.target.name]:e.target.value
+        })
+      }
 
 
   return (
@@ -198,19 +247,50 @@ const Inventario = ({setProtegida}) => {
         <button onClick={()=>{
 
           if(!mostrarVestidos){
-          setMostrarVestidos(true)}else{
+          setMostrarVestidos(true)
+          setAccesorio(false)
+        
+        }else{
             setMostrarVestidos(false)
           }
         }}>Vestidos</button>
-        <button>Accesorios</button>
+        <button
+        onClick={()=>{
+          if(!mostrarAccesorios){
+          setAccesorio(true)
+          setMostrarVestidos(false)
+        
+        }else{
+            setAccesorio(false)
+          }
+          
+        }}
+        >Accesorios</button>
+
+
         <button onClick={()=>{if(!agregarVestido){setAgregarVestido(true)
+        setAccesorio(false)
         }else{
           setAgregarVestido(false)
-        }}}>Agregar vestido</button>
+        }}}>Agregar vestido</button>  
+        
+        
+         <button className="boton-accesorio"   onClick={()=>{
+        setMostrarAccesorios(true)
+    }}>Agregar Accesorio</button>
+
+    
+
+
+
+
+
 
 
       </aside>
 
+      
+     {accesorio&&(<Accesorios></Accesorios>)}
       <div className="contenido">
         {agregarVestido &&(
         <form onSubmit={handleEnviar} className="formulario-vestido">
@@ -225,16 +305,71 @@ const Inventario = ({setProtegida}) => {
           <button type="submit">Agregar vestido</button>
         </form>
 )}
+     {mostrarAccesorios &&(
+      <div className="section-accesorios-agregar">
+    <section className="section-accesorios">
+      <form>
+        <label>Nombre</label>
+        <input
+        
+        name="nombre"
+        value={accesorio.nombre}
+        onChange={handle}
+
+        ></input>
+        <label>Cantidad Disponible</label>
+        <input
+        name="cantidad"
+        value={accesorio.cantidad}
+        onChange={handle}
+        
+        
+        ></input>
+        <label>Descripcion</label>
+        <input
+        name="descripcion"
+        value={accesorio.descripcion}
+        onChange={handle}
+        
+        ></input>
+        
+        
+        <label>Imagen:</label>
+        <input
+        name="imagen"
+        value={accesorio.imagen}
+        onChange={handle}
+        
+        ></input>
+
+
+        <button onClick={(e)=>{
+            handleEnviarAccesorio(e)
+        }}></button>
+        </form>
+    </section>
+    </div>
+    
+    )}
+
+
+
 
        {mostrarVestidos &&(
+        
+        
           filtro().map(vestido => (
           <div key={vestido.id} className="principal">
             <section className="section-principal">
               <img src={vestido.imagen} alt={vestido.nombre} />
-              
               <section className="section-modificar">
               <button>Actualizar</button>
-              <button>Borrar</button>
+              <button
+              onClick={()=>{
+                borrarVestido(vestido.id)
+              }}
+              
+              >Borrar</button>
               </section>
             </section>
             <section className="section-descripcion">
