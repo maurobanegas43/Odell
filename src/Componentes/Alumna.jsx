@@ -135,12 +135,14 @@ const Alumna = () => {
                 <p>Fecha de Nacimiento: {user.fechaNacimiento}</p>
                 <p>Telefono: {user.telefono}</p>
                 <p>Direccion: {user.direccion}</p>
+                <div className='botones-alumna' >
                 <button onClick={() => borrarAlumna(user.id)}>
                   Borrar Alumna
                 </button>
                 <button onClick={() => modificarAlumna(user)}>
                   Actualizar
                 </button>
+                </div>
               </section>
             </div>
             
