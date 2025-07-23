@@ -9,7 +9,8 @@
 body {
   background-color: var(--beige);
   color: var(--negro);
-  font-family: 'Georgia', serif; /* elegante y legible */
+  
+   font-family:  'sans-serif';
 }
 
 header {
