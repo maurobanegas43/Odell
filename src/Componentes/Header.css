@@ -1,5 +1,5 @@
 :root {
-  --gris-carbon: #333333;
+  --gris-carbon: #FFFFFF;
   --negro: #000000;
   --blanco: #FFFFFF;
   --rojo-flamenco: #8B0000;
@@ -9,11 +9,22 @@
 .header-principal {
   display: flex;
   flex-direction: row;
-  width: 100VW; /* reemplaza 101em por 100% para responsive */
+  width: 100%; 
   justify-content: center;
   align-items: center;
-  background-color: var(--gris-carbon);
+  background-color:white;
   color: var(--blanco);
   padding: 10px 0;
   font-family: var(--fuente-principal);
+  
+}
+.header-principal img{
+  width: 90px;
+}
+.header-principal button{
+  background: #e75480
+;
+  margin-left: 10px;
+  width: 10em;
+  height: 50px;
 }

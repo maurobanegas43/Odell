@@ -5,15 +5,13 @@ import './App.css'
 import Login from './Componentes/Login'
 import Inventario from './Componentes/Inventario'
 import Header from './Componentes/Header'
-import Body from './Componentes/Body'
-import DataGridDemo from './Componentes/DataGridDemo'
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './Componentes/Home'
 import Proteger from './Componentes/Proteger'
 import Sesion from './Componentes/Sesion'
 import Alumna from './Componentes/Alumna'
 import Aranceles from './Componentes/Aranceles'
+import Accesorios from './Componentes/Accesorios'
 
 
 
@@ -74,6 +72,20 @@ function App() {
                 }>
 
                 </Route>
+
+                   <Route path='/accesorios' 
+                element={
+                <Proteger rutaProtegida={rutaProtegida}>
+                <Accesorios setProtegida={setProtegida}></Accesorios>
+                </Proteger>
+                }>
+
+                </Route>
+
+
+
+
+
 
 
           </Routes>

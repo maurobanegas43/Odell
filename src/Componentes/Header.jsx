@@ -11,6 +11,7 @@ const Header= ({setProtegida})=>{
 return(
 
     <div className="header-principal">
+        <img src='/public/imagenes_vestidos/logo de una bailarina clasica con colores rosa y blanco y un fondo negro.png'></img>
         <h1>Odell</h1>
         <button onClick={()=> {navigate('/home')}}>Home</button>
         <button onClick={()=> {navigate('/inscribirAlumnas')}}>Nueva Alumna</button>

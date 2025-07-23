@@ -23,7 +23,6 @@ const Alumna = () => {
     try {
       await apiPath(`/alumna/update/${id}`, updateAlumna);
       
-      // Actualizar el estado local
       const updatedAlumnas = alumnas.map(alumna => 
         alumna.id === id ? { ...alumna, ...updateAlumna } : alumna
       );

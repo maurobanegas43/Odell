@@ -1,0 +1,95 @@
+
+:root {
+  --rosa-principal: #E75480; 
+  --rosa-claro: #FDE6EC;
+  --negro: #222222;
+  --gris-oscuro: #555555;
+  --blanco: #ffffff;
+}
+.accesorio-main{
+    display: flex;
+    flex-wrap: wrap;
+     gap: 0;
+     justify-content: center;
+}
+
+.principal-accesorio {
+  width: auto;
+  height: auto;
+  padding: 20px;
+  border-radius: 12px;
+  
+  
+}
+
+.section-accesorio {
+  width: 30em;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  text-align: center;
+  background: var(--rosa-claro);
+   color: var(--negro);
+  font-family: 'Lato', sans-serif;
+  margin-top: 5px;
+  font-size: 14px;
+  border-radius: 5%;
+}
+
+.section-accesorio h2{
+  font-size: 2em;
+}
+.section-accesorio p{
+  font-size: medium;
+  color:var(--negro)
+}
+.botones-accesorio{
+display: flex;
+flex-direction: row;
+margin-left: 20%;
+gap: 10px
+}
+
+
+.section-accesorio img {
+  width: 12em;
+  height: 20em;
+  object-fit: cover;
+  margin-bottom: 0.7rem;
+  border-radius: 12px;
+  border: 2px solid var(--rosa-principal); 
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15); 
+}
+
+.section-accesorio button {
+    
+  width: 80px; 
+  height: 40px;
+  border-radius: 10%;
+  background: var(--rosa-principal);
+  color: var(--blanco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+  
+}
+
+.boton-borrar-vestido{
+  margin-left: 25%;
+}
+.section-accesorio button:hover {
+  background: var(--gris-oscuro);
+  transform: scale(1.1);
+}
+.section-accesorio-update{
+  
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.section-accesorio-update input{
+  width: 100px;
+}
