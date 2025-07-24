@@ -51,8 +51,7 @@ Se desarrollaron los siguientes diagramas respetando las normas UML:
 
 - ✔️ **Diagrama de Casos de Uso**  
 - ✔️ **Diagrama de Clases**  
-- ✔️ **Diagrama de Secuencia**  
-- ✔️ **Modelo de Dominio**
+
 
 ---
 
