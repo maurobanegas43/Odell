@@ -68,4 +68,8 @@ Se desarrollaron los siguientes diagramas respetando las normas UML:
 1. Clonar el repositorio:
 
 ```bash
-git clone https://github.com/tuusuario/odell.git
+mkdir proyectoOdell
+cd pryectoOdell
+git clone https://github.com/maurobanegas43/Odell.git
+npm install
+npm run dev
